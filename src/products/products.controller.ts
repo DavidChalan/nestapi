@@ -3,70 +3,46 @@ import {
   Controller,
   Delete,
   Get,
+  HttpStatus,
   Param,
+  // HttpCode,
+  ParseFloatPipe,
   Post,
   Put,
 } from '@nestjs/common';
-interface datos {
-  id?: string;
-  size?: string;
-}
-type Product = { articulo: string; precio: number; descripcioin: string };
+// import { get } from 'http';
+import { ProductsService } from './products.service';
+import { Products } from './products.interface';
+// import { ok } from 'assert';
+
 @Controller('products')
 export class ProductsController {
+  constructor(private readonly servicioProducts: ProductsService) {}
   @Get()
-  getHelloProducts(): string {
-    return 'Total de productos en el aula DE 2ASIR';
+  getAllProducts(): Products[] {
+    return this.servicioProducts.getAll();
   }
-  @Get('camiseta')
-  findDetalle(): string {
-    return 'camisetas!!';
+  @Get(':id')
+  getByID(@Param('id') valor: number): Products {
+    return this.servicioProducts.getId(valor);
   }
-  @Get('camiseta/roja')
-  findAdios(): string {
-    return 'total de camisetas rojas!!';
-  }
-  //   @Get(':id')
-  //   findById(@Param() parametros: any): string {
-  //     return `Obteniendo productos del parametro ${parametros.id}`;
-  //   }
-  //   @Get('hot')
-  //   findhot(): string {
-  //     return 'Productos calientes!';
-  //   }
-  //   @Get(':id/:size')
-  //   findByIDSize(@Param() tipo: datos): string {
-  //     return `obnteniendo productos del tipos ${tipo} y tamaño ${tamano}`;
-  //   }
-
-  @Get(':id?/:size?')
-  findWithOptional(@Param() params: datos) {
-    const { id, size } = params;
-    if (size && id) {
-      return `Item ${id} de tamaño ${size}`;
-    } else if (id) {
-      return `Todos los items de tamaño ${id}`;
-    } else {
-      return 'Todos los items';
-    }
-  }
-  // @Post()
-  // insertaProducts(
-  //   @Body('articulo') producto: string,
-  //   @Body('precio') precio: number,
-  // ): string {
-  //   return `El productoo ${producto} de precio ${precio} se a insertado correctamente`;
-  // }
   @Post()
-  insertaProducts(@Body() producto: Product) {
-    return `El producto ${producto.articulo} de precio ${producto.precio} se a insertado correctamente`;
+  createProduct(
+    @Body('articulo') articulo: string,
+    @Body('precio', ParseFloatPipe) precio: number,
+  ): { status: HttpStatus; msg: string } {
+    return this.servicioProducts.insert({
+      id: this.servicioProducts.getAll().length + 1,
+      articulo,
+      precio,
+    });
   }
-  @Put()
-  actualizaProducts(): string {
-    return 'Productos ACTUALIZADOS';
+  @Put(':id')
+  updateProduct(@Param('id') valor: number, @Body() producto: any) {
+    return this.servicioProducts.update(valor, producto);
   }
-  @Delete()
-  findProducts(): string {
-    return 'Productos borrados';
+  @Delete(':id')
+  deletePrduct(@Param('id') valor: number): string {
+    return this.servicioProducts.delete(valor);
   }
 }

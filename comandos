@@ -1,0 +1,94 @@
+# instalar 
+npm install @nestjs/config
+npm install --save-dev @types/node
+
+npm install -g @nestjs/cli
+
+nest generate interface products
+
+
+
+
+  @Delete(':id')
+  findProducts(@Param('id', ParseIntPipe) producto: number): string {
+    return `El producto ${producto} sera borrado`;}
+  # Esto deniega para que solo se pueda utilizar numeros
+
+
+
+
+
+
+
+
+
+
+  # borrado de la parte de products.controller , del video 5 Primer ejemplo controlador servicio NEST
+
+   @Get('camiseta')
+  findDetalle(): string {
+    return 'camisetas!!';
+  }
+  @Get('camiseta/roja')
+  findAdios(): string {
+    return 'total de camisetas rojas!!';
+  }
+  @Get('query')
+  busqueda(@Query() consulta): string {
+    return `Estas consultando por el ${consulta.articulo} con el precio minimo ${consulta.precioMin} y un precio maximo ${consulta.precioMax}`;
+  }
+  //   @Get(':id')
+  //   findById(@Param() parametros: any): string {
+  //     return `Obteniendo productos del parametro ${parametros.id}`;
+  //   }
+  //   @Get('hot')
+  //   findhot(): string {
+  //     return 'Productos calientes!';
+  //   }
+  //   @Get(':id/:size')
+  //   findByIDSize(@Param() tipo: datos): string {
+  //     return `obnteniendo productos del tipos ${tipo} y tamaño ${tamano}`;
+  //   }
+
+  @Get(':id?/:size?')
+  findWithOptional(@Param() params: datos) {
+    const { id, size } = params;
+    if (size && id) {
+      return `Item ${id} de tamaño ${size}`;
+    } else if (id) {
+      return `Todos los items de tamaño ${id}`;
+    } else {
+      return 'Todos los items';
+    }
+  }
+  // @Post()
+  // insertaProducts(
+  //   @Body('articulo') producto: string,
+  //   @Body('precio') precio: number,
+  // ): string {
+  //   return `El productoo ${producto} de precio ${precio} se a insertado correctamente`;
+  // }
+  @Post()
+  insertaProducts(@Body() producto: Product) {
+    if (producto.articulo === 'tablet')
+      return {
+        status: HttpStatus.OK,
+        message: `El producto ${producto.articulo} de precio ${producto.precio} se a insertado correctamente`,
+      };
+    else {
+      return {
+        status: HttpStatus.NOT_ACCEPTABLE,
+        message: `solo se pueden introducír árticulos de tables`,
+      };
+    }
+  }
+  @Put(':id')
+  actualizaProducts(@Param() ruta: any, @Body() actualizar: any): string {
+    return `El producto ${actualizar.id} tiene que actualizar el articulo a ${actualizar.articulo} y precio a ${actualizar.precio}`;
+  }
+  @Delete(':id')
+  findProducts(@Param('id', ParseIntPipe) producto: number): string {
+    return `El producto ${producto} sera borrado`;
+  }
+}
+}
