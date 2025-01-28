@@ -6,13 +6,15 @@ import {
   HttpStatus,
   Param,
   // HttpCode,
-  ParseFloatPipe,
+  // ParseFloatPipe,
+  ParseIntPipe,
   Post,
   Put,
 } from '@nestjs/common';
 // import { get } from 'http';
 import { ProductsService } from './products.service';
 import { Products } from './products.interface';
+import { ProductsDto } from './dto/products.dto/products.dto';
 // import { ok } from 'assert';
 
 @Controller('products')
@@ -22,19 +24,23 @@ export class ProductsController {
   getAllProducts(): Products[] {
     return this.servicioProducts.getAll();
   }
+  @Get('total')
+  getTotal() {
+    return `El array tiene: ${this.servicioProducts.total()} elemtos`;
+  }
   @Get(':id')
-  getByID(@Param('id') valor: number): Products {
-    return this.servicioProducts.getId(valor);
+  getId(@Param('id', ParseIntPipe) id: number): Products {
+    return this.servicioProducts.findOne(id);
   }
   @Post()
-  createProduct(
-    @Body('articulo') articulo: string,
-    @Body('precio', ParseFloatPipe) precio: number,
-  ): { status: HttpStatus; msg: string } {
+  createProduct(@Body() producto: ProductsDto): {
+    status: HttpStatus;
+    msg: string;
+  } {
     return this.servicioProducts.insert({
       id: this.servicioProducts.getAll().length + 1,
-      articulo,
-      precio,
+      articulo: producto.articulo,
+      precio: producto.precio,
     });
   }
   @Put(':id')

@@ -1,4 +1,4 @@
-import { HttpStatus, Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
 import { Products } from './products.interface';
 
 @Injectable()
@@ -24,9 +24,23 @@ export class ProductsService {
       console.log(item, id, item.id == id);
       return item.id == id ? product : item;
     });
+    return { status: HttpStatus.OK, msg: 'El producto ha sido modificado' };
   }
   delete(id: number) {
     this.products = this.products.filter((item: Products) => item.id != id);
     return 'El producto a sido eliminado';
+  }
+
+  total(): number {
+    return this.products.length;
+  }
+  findOne(id: number): Products {
+    const product = this.products.find((item: Products) => item.id == id);
+    if (product) {
+      return product;
+    } else {
+      throw new NotFoundException(`No encontramos el producto ${id}`);
+      // throw new Error(`No encontramos el producto ${id}`);
+    }
   }
 }

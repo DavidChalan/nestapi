@@ -6,8 +6,19 @@ npm install -g @nestjs/cli
 
 nest generate interface products
 
+nest generate module products
 
+nest generate module clientes --no-spec
 
+nest generate controller clientes --no-spec
+
+nest generate service clientes --no-spec
+
+nest generate class products/dto/products.dto
+
+ nest generate resource alumnos --no-spec
+
+ 
 
   @Delete(':id')
   findProducts(@Param('id', ParseIntPipe) producto: number): string {
@@ -17,6 +28,19 @@ nest generate interface products
 
 
 
+
+npm i class-validator class-transformer
+
+------------------
+URL , para verificar errores en nest 
+https://docs.nestjs.com/exception-filters
+
+URL , procesos de validacion
+
+https://desarrolloweb.com/articulos/validaciones-avanzadas-nest-framework
+
+
+https://hackernoon.com/lang/es/la-hoja-de-trucos-de-diseno-del-sistema-estilos-api-rest-graphql-websocket-webhook-rpcgrpc-soap
 
 
 
