@@ -18,7 +18,9 @@ nest generate class products/dto/products.dto
 
  nest generate resource alumnos --no-spec
 
- 
+npm i @nestjs/typeorm mysql2
+
+nest generate resource usuario --no-spec (nos crea un directorio que se llame usuario con el dto y los entities)
 
   @Delete(':id')
   findProducts(@Param('id', ParseIntPipe) producto: number): string {
