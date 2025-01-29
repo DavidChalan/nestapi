@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { ProductsModule } from './products/products.module';
 import { ClientesModule } from './clientes/clientes.module';
 import { AlumnosModule } from './alumnos/alumnos.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
@@ -12,6 +13,16 @@ import { AlumnosModule } from './alumnos/alumnos.module';
     ProductsModule,
     ClientesModule,
     AlumnosModule,
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: process.env.URL,
+      port: 3306,
+      username: process.env.DBUSER,
+      password: process.env.PASSWORD,
+      database: process.env.DBNAME,
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      synchronize: true,
+    }),
   ],
   controllers: [],
   providers: [],
