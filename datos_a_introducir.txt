@@ -1,0 +1,2 @@
+- crear apinest2
+- borrar datos de apinest "DROP DATABASE apinest" , "CREATE DATABASE apinest"

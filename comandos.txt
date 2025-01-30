@@ -118,3 +118,17 @@ https://hackernoon.com/lang/es/la-hoja-de-trucos-de-diseno-del-sistema-estilos-a
   }
 }
 }
+
+
+
+
+
+
+
+
+{
+  1. Las entities son para crear las tablas
+
+
+
+}
