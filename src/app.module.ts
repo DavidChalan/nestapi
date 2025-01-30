@@ -6,6 +6,7 @@ import { ProductsModule } from './products/products.module';
 import { ClientesModule } from './clientes/clientes.module';
 import { AlumnosModule } from './alumnos/alumnos.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UsuarioModule } from './usuario/usuario.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
+    UsuarioModule,
   ],
   controllers: [],
   providers: [],
