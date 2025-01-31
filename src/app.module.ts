@@ -1,19 +1,13 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-// import { ProductsController } from './products/products.controller';
-// import { ProductsService } from './products/products.service';
-import { ProductsModule } from './products/products.module';
-import { ClientesModule } from './clientes/clientes.module';
-import { AlumnosModule } from './alumnos/alumnos.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsuarioModule } from './usuario/usuario.module';
+import { AlumnoModule } from './alumno/alumno.module';
+import { BibliotecaModule } from './biblioteca/biblioteca.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    ProductsModule,
-    ClientesModule,
-    AlumnosModule,
     TypeOrmModule.forRoot({
       name: 'base1',
       type: 'mysql',
@@ -22,7 +16,7 @@ import { UsuarioModule } from './usuario/usuario.module';
       username: process.env.DBUSER,
       password: process.env.PASSWORD,
       database: process.env.DBNAME,
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      autoLoadEntities: true, //Escogera todo
       synchronize: true,
     }),
     TypeOrmModule.forRoot({
@@ -33,10 +27,12 @@ import { UsuarioModule } from './usuario/usuario.module';
       username: process.env.DBUSER,
       password: process.env.PASSWORD,
       database: process.env.DBNAME2,
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      autoLoadEntities: true, //Escogera uno en concreto
       synchronize: true,
     }),
     UsuarioModule,
+    AlumnoModule,
+    BibliotecaModule,
   ],
   controllers: [],
   providers: [],

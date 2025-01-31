@@ -9,7 +9,7 @@ import { Repository } from 'typeorm';
 export class UsuarioService {
   // conexion con la base de datos
   constructor(
-    @InjectRepository(Usuario)
+    @InjectRepository(Usuario, 'base2')
     private usuarioRepository: Repository<Usuario>,
   ) {}
   async create(CreateUsuarioDto: CreateUsuarioDto): Promise<Usuario> {

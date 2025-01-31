@@ -16,7 +16,8 @@ nest generate service clientes --no-spec
 
 nest generate class products/dto/products.dto
 
- nest generate resource alumnos --no-spec
+
+!!! nest generate resource alumno --no-spec ¡¡¡
 
 npm i @nestjs/typeorm mysql2
 
