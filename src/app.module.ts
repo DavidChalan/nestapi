@@ -5,6 +5,7 @@ import { UsuarioModule } from './usuario/usuario.module';
 import { AlumnoModule } from './alumno/alumno.module';
 import { BibliotecaModule } from './biblioteca/biblioteca.module';
 import { PeliculasModule } from './peliculas/peliculas.module';
+import { PokemonModule } from './pokemon/pokemon.module';
 
 @Module({
   imports: [
@@ -42,10 +43,22 @@ import { PeliculasModule } from './peliculas/peliculas.module';
       autoLoadEntities: true, //Escogera uno en concreto
       synchronize: true,
     }),
+    TypeOrmModule.forRoot({
+      name: 'base4',
+      type: 'mysql',
+      host: process.env.URL,
+      port: 3306,
+      username: process.env.DBUSER,
+      password: process.env.PASSWORD,
+      database: process.env.DBNAME4,
+      autoLoadEntities: true, //Escogera uno en concreto
+      synchronize: true,
+    }),
     UsuarioModule,
     AlumnoModule,
     BibliotecaModule,
     PeliculasModule,
+    PokemonModule,
   ],
   controllers: [],
   providers: [],
