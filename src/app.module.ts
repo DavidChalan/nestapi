@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsuarioModule } from './usuario/usuario.module';
 import { AlumnoModule } from './alumno/alumno.module';
 import { BibliotecaModule } from './biblioteca/biblioteca.module';
+import { PeliculasModule } from './peliculas/peliculas.module';
 
 @Module({
   imports: [
@@ -30,9 +31,21 @@ import { BibliotecaModule } from './biblioteca/biblioteca.module';
       autoLoadEntities: true, //Escogera uno en concreto
       synchronize: true,
     }),
+    TypeOrmModule.forRoot({
+      name: 'base3',
+      type: 'mysql',
+      host: process.env.URL,
+      port: 3306,
+      username: process.env.DBUSER,
+      password: process.env.PASSWORD,
+      database: process.env.DBNAME3,
+      autoLoadEntities: true, //Escogera uno en concreto
+      synchronize: true,
+    }),
     UsuarioModule,
     AlumnoModule,
     BibliotecaModule,
+    PeliculasModule,
   ],
   controllers: [],
   providers: [],

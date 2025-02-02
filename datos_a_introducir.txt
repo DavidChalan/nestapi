@@ -3,4 +3,8 @@
 
 
 primero creamos modificamos los entities
-luego app module
+luego las dto
+
+
+
+
