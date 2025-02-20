@@ -9,6 +9,14 @@ import { PokemonModule } from './pokemon/pokemon.module';
 import { ApiModule } from './api/api.module';
 import { PostsModule } from './_api/posts/posts.module';
 import { UsersModule } from './_api/users/users.module';
+import { PracticaModule } from './evaluacion/practica/practica.module';
+import { AlumnoModule } from './evaluacion/alumno/alumno.module';
+import { ExamenTeoricoModule } from './evaluacion/examen-teorico/examen-teorico.module';
+import { ProfesorModule } from './evaluacion/profesor/profesor.module';
+import { PracticaModule } from './_evaluacion/practica/practica.module';
+import { AlumnoModule } from './_evaluacion/alumno/alumno.module';
+import { ExamenTeoricoModule } from './_evaluacion/examen-teorico/examen-teorico.module';
+import { ProfesorModule } from './_evaluacion/profesor/profesor.module';
 
 @Module({
   imports: [
@@ -65,6 +73,9 @@ import { UsersModule } from './_api/users/users.module';
     ApiModule,
     PostsModule,
     UsersModule,
+    PracticaModule,
+    ExamenTeoricoModule,
+    ProfesorModule,
   ],
   controllers: [],
   providers: [],
