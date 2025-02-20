@@ -150,3 +150,9 @@ dentro de src , crearemos una carpeta _api
 u luego usamos este comando 
 *nest generate resource _api/posts
 *nest generate resource _api/users
+
+
+* CREACION DE RELACIONES
+
+
+min 27:46
