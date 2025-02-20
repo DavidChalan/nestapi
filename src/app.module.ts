@@ -6,6 +6,9 @@ import { AlumnoModule } from './alumno/alumno.module';
 import { BibliotecaModule } from './biblioteca/biblioteca.module';
 import { PeliculasModule } from './peliculas/peliculas.module';
 import { PokemonModule } from './pokemon/pokemon.module';
+import { ApiModule } from './api/api.module';
+import { PostsModule } from './_api/posts/posts.module';
+import { UsersModule } from './_api/users/users.module';
 
 @Module({
   imports: [
@@ -59,6 +62,9 @@ import { PokemonModule } from './pokemon/pokemon.module';
     BibliotecaModule,
     PeliculasModule,
     PokemonModule,
+    ApiModule,
+    PostsModule,
+    UsersModule,
   ],
   controllers: [],
   providers: [],

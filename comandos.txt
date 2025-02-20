@@ -136,3 +136,17 @@ https://hackernoon.com/lang/es/la-hoja-de-trucos-de-diseno-del-sistema-estilos-a
 
 como utilizar la funcion find
 https://desarrolloweb.com/articulos/metodo-find-repositorios-typeorm
+
+
+
+
+video 12 Gestionar varios repositorios e incluir funciones al repositorio
+
+nest generate module api
+nest generate resource api/users --no-spec
+
+dentro de src , crearemos una carpeta _api
+
+u luego usamos este comando 
+*nest generate resource _api/posts
+*nest generate resource _api/users
