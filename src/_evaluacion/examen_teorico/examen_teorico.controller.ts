@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { ExamenTeoricoService } from './examen-teorico.service';
-import { CreateExamenTeoricoDto } from './dto/create-examen-teorico.dto';
-import { UpdateExamenTeoricoDto } from './dto/update-examen-teorico.dto';
+import { ExamenTeoricoService } from './examen_teorico.service';
+import { CreateExamenTeoricoDto } from './dto/create-examen_teorico.dto';
+import { UpdateExamenTeoricoDto } from './dto/update-examen_teorico.dto';
 
 @Controller('examen-teorico')
 export class ExamenTeoricoController {

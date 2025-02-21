@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { CreateExamenTeoricoDto } from './dto/create-examen-teorico.dto';
-import { UpdateExamenTeoricoDto } from './dto/update-examen-teorico.dto';
+import { CreateExamenTeoricoDto } from './dto/create-examen_teorico.dto';
+import { UpdateExamenTeoricoDto } from './dto/update-examen_teorico.dto';
 
 @Injectable()
 export class ExamenTeoricoService {

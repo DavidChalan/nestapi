@@ -17,6 +17,10 @@ import { PracticaModule } from './_evaluacion/practica/practica.module';
 import { AlumnoModule } from './_evaluacion/alumno/alumno.module';
 import { ExamenTeoricoModule } from './_evaluacion/examen-teorico/examen-teorico.module';
 import { ProfesorModule } from './_evaluacion/profesor/profesor.module';
+import { AlumnoRealizaPracticaModule } from './_evaluacion/alumno_realiza_practica/alumno_realiza_practica.module';
+import { AlumnoHaceExamenTeoricoModule } from './_evaluacion/alumno_hace_examen_teorico/alumno_hace_examen_teorico.module';
+import { ProfesorDiseñaPracticaModule } from './_evaluacion/profesor_diseña_practica/profesor_diseña_practica.module';
+import { ExamenTeoricoModule } from './_evaluacion/examen_teorico/examen_teorico.module';
 
 @Module({
   imports: [
@@ -76,6 +80,9 @@ import { ProfesorModule } from './_evaluacion/profesor/profesor.module';
     PracticaModule,
     ExamenTeoricoModule,
     ProfesorModule,
+    AlumnoRealizaPracticaModule,
+    AlumnoHaceExamenTeoricoModule,
+    ProfesorDiseñaPracticaModule,
   ],
   controllers: [],
   providers: [],

@@ -3,6 +3,7 @@ npm install @nestjs/config
 npm install --save-dev @types/node
 
 npm install -g @nestjs/cli
+npm install typescript typeorm
 
 nest generate interface products
 
