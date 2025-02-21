@@ -1,12 +1,6 @@
+import { AlumnoRealizaPractica } from 'src/_evaluacion/alumno_realiza_practica/entities/alumno_realiza_practica.entity';
 import { ProfesorDiseñaPractica } from 'src/_evaluacion/profesor_diseña_practica/entities/profesor_diseña_practica.entity';
-import { Alumno } from 'src/alumno/entities/alumno.entity';
-import {
-  Column,
-  Entity,
-  ManyToOne,
-  OneToMany,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Practica {
@@ -16,8 +10,14 @@ export class Practica {
   titulo: string;
   @Column()
   dificultad: string;
-  @ManyToOne(() => Alumno, (alumno) => alumno.practica)
-  categoria: Alumno;
-  @OneToMany(() => ProfesorDiseñaPractica, (psp) => psp.practica)
-  proveedorSuministraPiezas: ProfesorDiseñaPractica[];
+  @OneToMany(
+    () => AlumnoRealizaPractica,
+    (alumnorealizapractica) => alumnorealizapractica.practica,
+  )
+  AlumnoRealizaPractica: AlumnoRealizaPractica;
+  @OneToMany(
+    () => ProfesorDiseñaPractica,
+    (profesordiseñapractica) => profesordiseñapractica.practica,
+  )
+  ProfesorDiseñaPractica: ProfesorDiseñaPractica[];
 }
