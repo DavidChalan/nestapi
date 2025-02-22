@@ -14,10 +14,11 @@ export class Practica {
     () => AlumnoRealizaPractica,
     (alumnorealizapractica) => alumnorealizapractica.practica,
   )
-  AlumnoRealizaPractica: AlumnoRealizaPractica;
+  alumnoRealizaPractica: AlumnoRealizaPractica[];
+
   @OneToMany(
     () => ProfesorDiseñaPractica,
     (profesordiseñapractica) => profesordiseñapractica.practica,
   )
-  ProfesorDiseñaPractica: ProfesorDiseñaPractica[];
+  profesorDiseñaPractica: ProfesorDiseñaPractica[];
 }

@@ -1,22 +1,26 @@
 import { Alumno } from 'src/_evaluacion/alumno/entities/alumno.entity';
 import { ExamenTeorico } from 'src/_evaluacion/examen_teorico/entities/examen_teorico.entity';
-import { Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
+import { Entity, JoinColumn, ManyToOne, Column, PrimaryColumn } from 'typeorm';
 
 @Entity()
 export class AlumnoHaceExamenTeorico {
   @PrimaryColumn()
   id_alumno: number;
+
   @PrimaryColumn()
   id_examen_teorico: number;
-  @PrimaryColumn()
+
+  @Column()
   nota: number;
+
   @ManyToOne(
     () => ExamenTeorico,
-    (examenteorico) => examenteorico.alumnoshacenexamenteorico,
+    (examenTeorico) => examenTeorico.alumnoshacenexamenteorico,
   )
   @JoinColumn({ name: 'id_examen_teorico' })
-  examenteorico: AlumnoHaceExamenTeorico;
-  @ManyToOne(() => Alumno, (alumno) => alumno.alumnoshacenexamenteorico)
+  examenTeorico: ExamenTeorico;
+
+  @ManyToOne(() => Alumno, (alumno) => alumno.alumnosHacenExamenTeorico)
   @JoinColumn({ name: 'id_alumno' })
-  alumno: AlumnoHaceExamenTeorico;
+  alumno: Alumno;
 }

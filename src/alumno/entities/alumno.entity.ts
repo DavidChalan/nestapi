@@ -1,9 +1,12 @@
+import { AlumnoHaceExamenTeorico } from 'src/_evaluacion/alumno_hace_examen_teorico/entities/alumno_hace_examen_teorico.entity';
+import { AlumnoRealizaPractica } from 'src/_evaluacion/alumno_realiza_practica/entities/alumno_realiza_practica.entity';
 import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
 @Entity()
 export class Alumno {
@@ -21,4 +24,14 @@ export class Alumno {
   fechaCreacion: Date;
   @UpdateDateColumn() // Fecha de actualización automática
   fechaActualizacion: Date;
+  @OneToMany(
+    () => AlumnoHaceExamenTeorico,
+    (alumno_hace_examen_teorico) => alumno_hace_examen_teorico.alumno,
+  )
+  alumno: Alumno;
+  @OneToMany(
+    () => AlumnoRealizaPractica,
+    (alumno_realiza_practica) => alumno_realiza_practica.alumno,
+  )
+  Alumno: Alumno;
 }

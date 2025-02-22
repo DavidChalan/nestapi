@@ -14,7 +14,7 @@ export class AlumnoRealizaPractica {
   @OneToMany(() => Alumno, (alumno) => alumno.alumnorealizapractica)
   @JoinColumn({ name: 'id_alumno' })
   alumno: Alumno;
-  @OneToMany(() => Practica, (practica) => practica.AlumnoRealizaPractica)
+  @OneToMany(() => Practica, (practica) => practica.alumnoRealizaPractica)
   @JoinColumn({ name: 'id_practica' })
   practica: Practica;
 }

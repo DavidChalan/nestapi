@@ -6,8 +6,6 @@ import { BibliotecaModule } from './biblioteca/biblioteca.module';
 import { PeliculasModule } from './peliculas/peliculas.module';
 import { PokemonModule } from './pokemon/pokemon.module';
 import { ApiModule } from './api/api.module';
-import { PostsModule } from './_api/posts/posts.module';
-import { UsersModule } from './_api/users/users.module';
 import { PracticaModule } from './_evaluacion/practica/practica.module';
 import { AlumnoModule } from './_evaluacion/alumno/alumno.module';
 import { ProfesorModule } from './_evaluacion/profesor/profesor.module';
@@ -69,8 +67,6 @@ import { ExamenTeoricoModule } from './_evaluacion/examen_teorico/examen_teorico
     PeliculasModule,
     PokemonModule,
     ApiModule,
-    PostsModule,
-    UsersModule,
     PracticaModule,
     ExamenTeoricoModule,
     ProfesorModule,

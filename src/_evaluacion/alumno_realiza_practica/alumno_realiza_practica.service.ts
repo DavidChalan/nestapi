@@ -4,7 +4,7 @@ import { UpdateAlumnoRealizaPracticaDto } from './dto/update-alumno_realiza_prac
 
 @Injectable()
 export class AlumnoRealizaPracticaService {
-  create(createAlumnoRealizaPracticaDto: CreateAlumnoRealizaPracticaDto) {
+  create(CreateAlumnoRealizaPracticaDto: CreateAlumnoRealizaPracticaDto) {
     return 'This action adds a new alumnoRealizaPractica';
   }
 

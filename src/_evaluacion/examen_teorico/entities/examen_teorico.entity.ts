@@ -13,11 +13,11 @@ export class ExamenTeorico {
   @Column()
   fecha: Date;
 
-  @OneToMany(() => Profesor, (profesor) => profesor.examenteorico)
+  @OneToMany(() => Profesor, (profesor) => profesor.examenteoricos)
   profesor: Profesor[];
   @OneToMany(
     () => AlumnoHaceExamenTeorico,
-    (ALmHaceExtTeorico) => ALmHaceExtTeorico.examenteorico,
+    (alumnoshacenexamenteorico) => alumnoshacenexamenteorico.examenTeorico,
   )
   alumnoshacenexamenteorico: AlumnoHaceExamenTeorico[];
 }

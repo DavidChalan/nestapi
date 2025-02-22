@@ -7,7 +7,7 @@ export class Profesor {
   @PrimaryGeneratedColumn()
   id: number;
   @Column()
-  nif: number;
+  nif: string;
   @Column()
   nombre: string;
   @Column()
@@ -18,7 +18,7 @@ export class Profesor {
     () => ProfesorDiseñaPractica,
     (profesordiseñapractica) => profesordiseñapractica.profesor,
   )
-  ProfesorDiseñaPractica: ProfesorDiseñaPractica[];
+  profesorDiseñaPractica: ProfesorDiseñaPractica[];
   @OneToMany(() => ExamenTeorico, (ExamenTeorico) => ExamenTeorico.profesor)
-  examenteorico: ExamenTeorico[];
+  examenteoricos: ExamenTeorico[];
 }

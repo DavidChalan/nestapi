@@ -10,10 +10,10 @@ export class ProfesorDiseñaPractica {
   id_practica: number;
   @PrimaryColumn()
   fecha: Date;
-  @OneToMany(() => Profesor, (Profesor) => Profesor.ProfesorDiseñaPractica)
+  @OneToMany(() => Profesor, (Profesor) => Profesor.profesorDiseñaPractica)
   @JoinColumn({ name: 'id_profesor' })
   profesor: Profesor;
-  @OneToMany(() => Practica, (practica) => practica.ProfesorDiseñaPractica)
+  @OneToMany(() => Practica, (practica) => practica.profesorDiseñaPractica)
   @JoinColumn({ name: 'id_practica' })
   practica: Practica;
 }

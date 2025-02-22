@@ -20,7 +20,7 @@ export class Alumno {
     () => AlumnoHaceExamenTeorico,
     (alumnoshacenexamenteorico) => alumnoshacenexamenteorico.alumno,
   )
-  alumnoshacenexamenteorico: AlumnoHaceExamenTeorico[];
+  alumnosHacenExamenTeorico: AlumnoHaceExamenTeorico[];
   @OneToMany(() => AlumnoRealizaPractica, (arp) => arp.alumno)
   alumnorealizapractica: AlumnoRealizaPractica[];
 }
