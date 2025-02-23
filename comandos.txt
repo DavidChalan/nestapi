@@ -157,3 +157,5 @@ u luego usamos este comando
 
 
 min 27:46
+
+nest generate resource _evaluacion/profesor_disena_practica

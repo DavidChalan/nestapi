@@ -2,29 +2,29 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-import { ProfesorDiseñaPractica } from './entities/profesor_diseña_practica.entity';
-import { CreateProfesorDiseñaPracticaDto } from './dto/create-profesor_diseña_practica.dto';
-import { UpdateProfesorDiseñaPracticaDto } from './dto/update-profesor_diseña_practica.dto';
+import { ProfesorDisenaPractica } from './entities/profesor_disena_practica.entity';
+import { CreateProfesorDisenaPracticaDto } from './dto/create-profesor_disena_practica.dto';
+import { UpdateProfesorDisenaPracticaDto } from './dto/update-profesor_disena_practica.dto';
 
 @Injectable()
-export class ProfesorDiseñaPracticaService {
+export class ProfesorDisenaPracticaService {
   constructor(
-    @InjectRepository(ProfesorDiseñaPractica, 'base1')
-    private profesorDiseñaPracticaRepository: Repository<ProfesorDiseñaPractica>,
+    @InjectRepository(ProfesorDisenaPractica, 'base1')
+    private profesorDisenaPracticaRepository: Repository<ProfesorDisenaPractica>,
   ) {}
 
   // Método para crear un nuevo registro
   async create(
-    createDto: CreateProfesorDiseñaPracticaDto,
-  ): Promise<ProfesorDiseñaPractica> {
+    createDto: CreateProfesorDisenaPracticaDto,
+  ): Promise<ProfesorDisenaPractica> {
     const nuevoRegistro =
-      this.profesorDiseñaPracticaRepository.create(createDto);
-    return await this.profesorDiseñaPracticaRepository.save(nuevoRegistro);
+      this.profesorDisenaPracticaRepository.create(createDto);
+    return await this.profesorDisenaPracticaRepository.save(nuevoRegistro);
   }
 
   // Método para obtener todos los registros
-  async findAll(): Promise<ProfesorDiseñaPractica[]> {
-    return await this.profesorDiseñaPracticaRepository.find({
+  async findAll(): Promise<ProfesorDisenaPractica[]> {
+    return await this.profesorDisenaPracticaRepository.find({
       relations: ['profesor', 'practica'],
     });
   }
@@ -33,8 +33,8 @@ export class ProfesorDiseñaPracticaService {
   async findOne(
     id_profesor: number,
     id_practica: number,
-  ): Promise<ProfesorDiseñaPractica> {
-    const registro = await this.profesorDiseñaPracticaRepository.findOne({
+  ): Promise<ProfesorDisenaPractica> {
+    const registro = await this.profesorDisenaPracticaRepository.findOne({
       where: { id_profesor, id_practica },
       relations: ['profesor', 'practica'],
     });
@@ -52,12 +52,12 @@ export class ProfesorDiseñaPracticaService {
   async update(
     id_profesor: number,
     id_practica: number,
-    updateDto: UpdateProfesorDiseñaPracticaDto,
-  ): Promise<ProfesorDiseñaPractica> {
+    updateDto: UpdateProfesorDisenaPracticaDto,
+  ): Promise<ProfesorDisenaPractica> {
     // Verificamos si el registro existe
     await this.findOne(id_profesor, id_practica);
 
-    await this.profesorDiseñaPracticaRepository.update(
+    await this.profesorDisenaPracticaRepository.update(
       { id_profesor, id_practica },
       updateDto,
     );
@@ -67,7 +67,7 @@ export class ProfesorDiseñaPracticaService {
 
   // Método para eliminar un registro
   async remove(id_profesor: number, id_practica: number): Promise<void> {
-    const result = await this.profesorDiseñaPracticaRepository.delete({
+    const result = await this.profesorDisenaPracticaRepository.delete({
       id_profesor,
       id_practica,
     });

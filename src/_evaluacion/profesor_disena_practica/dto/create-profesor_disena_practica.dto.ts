@@ -1,6 +1,6 @@
 import { IsDate, IsNotEmpty, IsNumber } from 'class-validator';
 
-export class CreateProfesorDiseñaPracticaDto {
+export class CreateProfesorDisenaPracticaDto {
   @IsNotEmpty({ message: 'El id del profesor no puede estar vacío' }) // este valor no puede ser NULL
   @IsNumber({}, { message: 'El id del profesor debe ser un número' }) // nos aseguramos que sea un número
   id_profesor: number;
