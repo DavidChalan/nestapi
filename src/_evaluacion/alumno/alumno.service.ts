@@ -25,7 +25,7 @@ export class AlumnoService {
   async findAll(): Promise<Alumno[]> {
     // Obtenemos todos los alumnos junto con las relaciones especificadas
     return await this.alumnoRepository.find({
-      relations: ['alumnoshacenexamenteorico', 'alumnorealizapractica'],
+      relations: ['alumnosHacenExamenTeorico', 'alumnosRealizanPractica'],
     });
   }
 
@@ -33,7 +33,7 @@ export class AlumnoService {
   async findOne(id: number): Promise<Alumno> {
     return await this.alumnoRepository.findOne({
       where: { id },
-      relations: ['alumnoshacenexamenteorico', 'alumnorealizapractica'],
+      relations: ['alumnosHacenExamenTeorico', 'alumnosRealizanPractica'],
     });
   }
 
@@ -43,7 +43,7 @@ export class AlumnoService {
     // Retornamos el alumno actualizado con sus relaciones
     return await this.alumnoRepository.findOne({
       where: { id },
-      relations: ['alumnoshacenexamenteorico', 'alumnorealizapractica'],
+      relations: ['alumnosHacenExamenTeorico', 'alumnosRealizanPractica'],
     });
   }
 

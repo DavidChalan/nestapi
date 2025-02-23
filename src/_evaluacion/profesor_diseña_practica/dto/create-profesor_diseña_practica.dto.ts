@@ -1,4 +1,4 @@
-import { IsDateString, IsNotEmpty, IsNumber } from 'class-validator';
+import { IsDate, IsNotEmpty, IsNumber } from 'class-validator';
 
 export class CreateProfesorDiseñaPracticaDto {
   @IsNotEmpty({ message: 'El id del profesor no puede estar vacío' }) // este valor no puede ser NULL
@@ -10,9 +10,6 @@ export class CreateProfesorDiseñaPracticaDto {
   id_practica: number;
 
   @IsNotEmpty({ message: 'La fecha no puede estar vacía' }) // este valor no puede ser NULL
-  @IsDateString(
-    {},
-    { message: 'La fecha debe ser una cadena de texto con formato de fecha' },
-  ) // verifica que el campo sea una cadena de texto con formato de fecha
-  fecha: string;
+  @IsDate() // verifica que el campo sea una cadena de texto con formato de fecha
+  fecha: Date;
 }

@@ -3,9 +3,9 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
   Delete,
+  Put,
 } from '@nestjs/common';
 import { ExamenTeoricoService } from './examen_teorico.service';
 import { CreateExamenTeoricoDto } from './dto/create-examen_teorico.dto';
@@ -30,7 +30,7 @@ export class ExamenTeoricoController {
     return this.examenTeoricoService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(
     @Param('id') id: string,
     @Body() updateExamenTeoricoDto: UpdateExamenTeoricoDto,

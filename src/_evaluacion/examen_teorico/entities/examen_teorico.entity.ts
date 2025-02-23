@@ -1,6 +1,12 @@
 import { AlumnoHaceExamenTeorico } from 'src/_evaluacion/alumno_hace_examen_teorico/entities/alumno_hace_examen_teorico.entity';
 import { Profesor } from 'src/_evaluacion/profesor/entities/profesor.entity';
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class ExamenTeorico {
@@ -13,11 +19,11 @@ export class ExamenTeorico {
   @Column()
   fecha: Date;
 
-  @OneToMany(() => Profesor, (profesor) => profesor.examenteoricos)
+  @ManyToOne(() => Profesor, (profesor) => profesor.examenesTeoricos)
   profesor: Profesor[];
   @OneToMany(
     () => AlumnoHaceExamenTeorico,
     (alumnoshacenexamenteorico) => alumnoshacenexamenteorico.examenTeorico,
   )
-  alumnoshacenexamenteorico: AlumnoHaceExamenTeorico[];
+  alumnosHacenExamenTeorico: AlumnoHaceExamenTeorico[];
 }

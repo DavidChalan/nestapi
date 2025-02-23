@@ -25,7 +25,7 @@ export class PracticaService {
   async findAll(): Promise<Practica[]> {
     // Obtenemos todas las prácticas junto con las relaciones especificadas
     return await this.practicaRepository.find({
-      relations: ['alumnoRealizaPractica', 'profesorDiseñaPractica'],
+      relations: ['alumnosRealizanPractica', 'profesorDiseñaPractica'],
     });
   }
 

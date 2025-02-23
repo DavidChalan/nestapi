@@ -22,7 +22,7 @@ export class ProfesorService {
   async findAll(): Promise<Profesor[]> {
     // Obtenemos todos los profesores de la base de datos, incluyendo las relaciones
     return await this.profesorRepository.find({
-      relations: ['profesorDiseñaPractica', 'examenTeorico'],
+      relations: ['profesorDiseñaPracticas', 'examenesTeoricos'],
     });
   }
 
@@ -31,7 +31,7 @@ export class ProfesorService {
     // Buscamos un profesor por su ID, incluyendo las relaciones
     const profesor = await this.profesorRepository.findOne({
       where: { id },
-      relations: ['profesorDiseñaPractica', 'examenTeorico'],
+      relations: ['profesorDiseñaPracticas', 'examenesTeoricos'],
     });
     // Si no se encuentra, diremos que no se a econtrado
     if (!profesor) {
@@ -53,7 +53,7 @@ export class ProfesorService {
     // Retornamos el profesor actualizado, incluyendo las relaciones
     return await this.profesorRepository.findOne({
       where: { id },
-      relations: ['profesorDiseñaPractica', 'examenTeorico'],
+      relations: ['profesorDiseñaPracticas', 'examenesTeoricos'],
     });
   }
 

@@ -29,7 +29,7 @@ export class ExamenTeoricoService {
   async findAll(): Promise<ExamenTeorico[]> {
     // Obtenemos todos los exámenes teóricos con las relaciones
     return await this.examenTeoricoRepository.find({
-      relations: ['profesores', 'alumnosHacenExamenTeorico'],
+      relations: ['profesor', 'alumnosHacenExamenTeorico'],
     });
   }
 
@@ -38,7 +38,7 @@ export class ExamenTeoricoService {
     // Buscamos el examen teórico por ID
     const examenTeorico = await this.examenTeoricoRepository.findOne({
       where: { id },
-      relations: ['profesores', 'alumnosHacenExamenTeorico'],
+      relations: ['profesor', 'alumnosHacenExamenTeorico'],
     });
     // Si no existe, lanzamos una excepción
     if (!examenTeorico) {
@@ -59,7 +59,7 @@ export class ExamenTeoricoService {
     // Retornamos el examen teórico actualizado
     return await this.examenTeoricoRepository.findOne({
       where: { id },
-      relations: ['profesores', 'alumnosHacenExamenTeorico'],
+      relations: ['profesor', 'alumnosHacenExamenTeorico'],
     });
   }
 

@@ -16,9 +16,9 @@ export class Profesor {
   apellido_2: string;
   @OneToMany(
     () => ProfesorDiseñaPractica,
-    (profesordiseñapractica) => profesordiseñapractica.profesor,
+    (profesorDiseñaPractica) => profesorDiseñaPractica.profesor,
   )
-  profesorDiseñaPractica: ProfesorDiseñaPractica[];
-  @OneToMany(() => ExamenTeorico, (ExamenTeorico) => ExamenTeorico.profesor)
-  examenteoricos: ExamenTeorico[];
+  profesorDiseñaPracticas: ProfesorDiseñaPractica[];
+  @OneToMany(() => ExamenTeorico, (examenTeorico) => examenTeorico.profesor)
+  examenesTeoricos: ExamenTeorico[];
 }

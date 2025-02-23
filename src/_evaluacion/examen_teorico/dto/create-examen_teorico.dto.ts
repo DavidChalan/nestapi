@@ -1,5 +1,5 @@
 import { Type } from 'class-transformer';
-import { IsDateString, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsDate, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class CreateExamenTeoricoDto {
   @IsNotEmpty({ message: 'El título no puede estar vacío' })
@@ -12,6 +12,6 @@ export class CreateExamenTeoricoDto {
 
   @IsNotEmpty({ message: 'La fecha no puede estar vacía' })
   @Type(() => Date)
-  @IsDateString({}, { message: 'La fecha debe ser una fecha válida' })
+  @IsDate()
   fecha: Date;
 }

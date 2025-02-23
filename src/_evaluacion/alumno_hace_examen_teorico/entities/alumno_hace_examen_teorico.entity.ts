@@ -15,7 +15,7 @@ export class AlumnoHaceExamenTeorico {
 
   @ManyToOne(
     () => ExamenTeorico,
-    (examenTeorico) => examenTeorico.alumnoshacenexamenteorico,
+    (examenTeorico) => examenTeorico.alumnosHacenExamenTeorico,
   )
   @JoinColumn({ name: 'id_examen_teorico' })
   examenTeorico: ExamenTeorico;

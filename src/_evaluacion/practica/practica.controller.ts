@@ -3,9 +3,9 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
   Delete,
+  Put,
 } from '@nestjs/common';
 import { PracticaService } from './practica.service';
 import { CreatePracticaDto } from './dto/create-practica.dto';
@@ -30,7 +30,7 @@ export class PracticaController {
     return this.practicaService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(
     @Param('id') id: string,
     @Body() updatePracticaDto: UpdatePracticaDto,
