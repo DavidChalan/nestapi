@@ -1,0 +1,29 @@
+ALUMNO
+{
+    "nif": "00000000A",
+    "grupo": "5",
+    "nombre": "david",
+    "apellido_1": "chalan",
+    "apellido_2": "cango"
+  }
+
+EXAMEN_TEORICO
+{
+  "titulo": "elexamen",
+  "numero_preguntas": 5,
+  "fecha": "2025-11-20T00:00:00Z"
+}
+
+PROFESOR
+{
+  "nif": "11111111A",
+  "nombre": "luis",
+  "apellido_1": "chalan",
+  "apellido_2": "cango"
+}
+
+PRACTICA
+{
+  "titulo": "elperro",
+  "dificultad": "dificil"
+}
