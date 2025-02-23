@@ -1,5 +1,5 @@
 import { AlumnoRealizaPractica } from 'src/_evaluacion/alumno_realiza_practica/entities/alumno_realiza_practica.entity';
-import { ProfesorDiseñaPractica } from 'src/_evaluacion/profesor_diseña_practica/entities/profesor_diseña_practica.entity';
+import { ProfesorDisenaPractica } from 'src/_evaluacion/profesor_disena_practica/entities/profesor_disena_practica.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
@@ -17,8 +17,8 @@ export class Practica {
   alumnosRealizanPractica: AlumnoRealizaPractica[];
 
   @OneToMany(
-    () => ProfesorDiseñaPractica,
-    (profesordiseñapractica) => profesordiseñapractica.practica,
+    () => ProfesorDisenaPractica,
+    (profesordisenapractica) => profesordisenapractica.practica,
   )
-  profesorDiseñaPractica: ProfesorDiseñaPractica[];
+  profesorDisenaPractica: ProfesorDisenaPractica[];
 }
