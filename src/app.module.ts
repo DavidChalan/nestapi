@@ -13,6 +13,10 @@ import { AlumnoRealizaPracticaModule } from './_evaluacion/alumno_realiza_practi
 import { AlumnoHaceExamenTeoricoModule } from './_evaluacion/alumno_hace_examen_teorico/alumno_hace_examen_teorico.module';
 import { ProfesorDisenaPracticaModule } from './_evaluacion/profesor_disena_practica/profesor_disena_practica.module';
 import { ExamenTeoricoModule } from './_evaluacion/examen_teorico/examen_teorico.module';
+import { AutorModule } from './_biblioteca/autor/autor.module';
+import { LibroModule } from './_biblioteca/libro/libro.module';
+import { AuthModule } from './_biblioteca/auth/auth.module';
+import { AdminModule } from './_biblioteca/users/users.module';
 
 @Module({
   imports: [
@@ -74,6 +78,10 @@ import { ExamenTeoricoModule } from './_evaluacion/examen_teorico/examen_teorico
     AlumnoHaceExamenTeoricoModule,
     ProfesorDisenaPracticaModule,
     ProfesorDisenaPracticaModule,
+    AutorModule,
+    LibroModule,
+    AuthModule,
+    AdminModule,
   ],
   controllers: [],
   providers: [],
